@@ -1,16 +1,9 @@
-// Imports go first
+import { makePottery } from "./PotteryWheel.js";
 
+const mug = makePottery("Mug", 2, 10);
+const plate = makePottery("Plate,", 3, 12);
+const teapot = makePottery("Teapot", 5, 11);
+const vase = makePottery("Vase", 5, 8);
+const planter = makePottery("Planter", 5, 11);
 
-
-// Make 5 pieces of pottery at the wheel
-let mug = makePottery()
-
-
-// Fire each piece of pottery in the kiln
-
-
-// Determine which ones should be sold, and their price
-
-
-// Invoke the component function that renders the HTML list
-
+console.log(potteryItem);
