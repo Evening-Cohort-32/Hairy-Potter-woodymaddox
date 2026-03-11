@@ -1,0 +1,22 @@
+
+  sequenceDiagram
+    participant Main
+    participant PotteryWheel
+    participant Kiln
+    participant PotteryCatalog
+    participant PotteryList
+    participant DOM
+
+    Main->>PotteryWheel: makePottery(shape, weight, height, image)
+    PotteryWheel-->>Main: potteryObject
+    Main->>Kiln: firePottery(potteryObject, temp)
+    Kiln-->>Main: firedPotteryObject
+    Main->>PotteryCatalog: toSellOrNotToSell(firedPotteryObject)
+    PotteryCatalog-->>Main: pricedPotteryObject
+    Main->>PotteryList: PotteryList()
+    PotteryList->>PotteryCatalog: usePottery()
+    PotteryCatalog-->>PotteryList: storePotteryCopy
+    PotteryList-->>Main: potteryHTML
+    Main->>PotteryList: renderPotteryToDom(potteryHTML)
+    PotteryList->>DOM: insert HTML
+    DOM-->>PotteryList: updated UI
