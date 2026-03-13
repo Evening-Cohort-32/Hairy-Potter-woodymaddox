@@ -1,10 +1,11 @@
 import { usePottery } from "./PotteryCatalog.js";
 
 export const PotteryList = () => {
-  const allPottery = usePottery();
-  let potteryHTML = "";
+  const allPottery = usePottery(); //Gets the list un cracked, priced pottery
+  let potteryHTML = ""; //Empty string to hold the HTML
 
   for (const pottery of allPottery) {
+    //It loops through every piece of pottery in the list one by one.For each item it generates the html card.
     potteryHTML += `
       <div class="card-container">
         <div class="card">
@@ -22,14 +23,14 @@ export const PotteryList = () => {
       </div>
             `;
   }
-  return potteryHTML;
+  return potteryHTML; //Once the loop is done it returns one big string with all the HTML cards
 };
 
 export const renderPotteryToDom = (potteryHTML) => {
-  const listOfPottery = document.getElementById("PotteryList");
+  const listOfPottery = document.getElementById("PotteryList"); //looks in index.html for "PotteryList"
   if (listOfPottery) {
-    listOfPottery.innerHTML = potteryHTML;
+    listOfPottery.innerHTML = potteryHTML; //Injects the html cards into that spot on the page
   } else {
-    console.error('Could not find element with ID "PotteryList');
+    console.error('Could not find element with ID "PotteryList'); //if it cant find the Id in the html file it consoles a error
   }
 };

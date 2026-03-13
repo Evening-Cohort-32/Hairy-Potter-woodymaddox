@@ -114,18 +114,38 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
-
 ## Vocabulary and Understanding
 
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
+
    > Your answer here
+
+   ***
+   1. Everything starts with the makePottery function in "PotteryWheels.js" to create the initial {}objects.
+   2. These {}objects are then passed into the "firePottery" function in Kiln.js to modify the objects adding whether its fired:true or cracked: determined by if the temp was more or less than 2200.
+   3. Fired objects are passed into the "toSellOrNotToSell" function in "PotteryCatalog.js". This function checks to see if cracked is false. If it's not cracked the price is calculated at 20 or 40. It then pushes that item into the "storePottery" []array. The "allPottery" function takes the []array of filtered items makes a "deep copy" of the array so it can be used in the next module.
+   4. The copy of the filtered array we made gets passed into the "potteryList" function. This function uses a for loop to loop through the filtered copy []array and for each of the items it creates a html card. It then adds all the of them together into one long string.
+   5. Now that we have the string we need to render it. The "renderPotteryToDom" function will then find the <div> with the #id "PotteryList" in this case that div is <article id="PotteryList"></article>. We use getElementById to find the Div. \*\*If its found we inject the HTML into the variable "listOfPottery" that was created inside the function.As a safety check I used a console.error to display a error console log if it could not find the element.
+   6. In "main.js" the parameters are passed into each of the functions we made and called. This executes the functions. At the bottom we call the "renderPotteryToDom" function which triggers the rendering of the HTML.
+
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
+
    > Paste your video's public URL here
+
+https://www.loom.com/share/97166149800c4a4bb18dc77a61aa5e22
+
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
+
    > Your answer here
+   > By breaking the code up into modules we can work in order of logical clean progression through the code. This helps separate the functions for easier readability and easier debugging. For example the pottery wheel helps us create the initial "database" of pottery objects. Each module has its own purpose and function in the code whether thats filter, assign values, or converting the data into something else.
+
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
+
    > Your answer here
+   > We could add some functionality to the toSellOrNotToSell function. Right now it checks if its cracked or not. Depending on the answer a check is done to determine the weight and then depending on the weight its price is added. You could use an else to say if it is cracked let the value be 2.50. It will then push that object into the array as well with the updated price of 2.50. This is the last filtering function in the app. The final array of objects then gets passed to the PotteryList function to be converted into HTML cards. This would add the additional cards to the HTML string so that will change how your page looks. Which could give you some design considerations to think about.
+
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
    > Paste your video's public URL here
+   > https://www.loom.com/share/d88899e3aca040d49b7f15785a44caca
